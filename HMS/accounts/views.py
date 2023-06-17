@@ -60,6 +60,6 @@ def register_request(request):
                 login(request, user)
                 messages.success(request, "Registration successful." )
                 return redirect("/placement/")
-            messages.error(request, "Uns1uccessful registration. Invalid information.")
+            messages.error(request, "Unsuccessful registration. Invalid information.")
         form = UserCreationForm()
         return render(request, 'signup.html', {'form':form})
