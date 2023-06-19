@@ -8,4 +8,9 @@ class NursesPage(models.Model):
     Pulse_rate = models.CharField(max_length=10)
 
 class Doctorpage(models.Model):
-    
+    complaints = models.CharField(max_length=500)
+    comments = models.CharField(max_length=500)
+    drugs_assigned = models.CharField(max_length=500)
+
+class Labtechnician(models.Model):
+    results = models.fields
