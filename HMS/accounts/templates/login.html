@@ -1,8 +1,15 @@
-{% block content %}
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<form class="site-form" method="post">
-    {% csrf_token %}
-    {{ form }}
+<html webcrx="">
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+<body>
+    <form class="site-form" method="post">
+        {% csrf_token %}
+    <label for="id_username">Username:</label>      
+      <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+    <label for="id_password">Password:</label>
+      <input type="password" name="password" autocomplete="current-password" required="" id="id_password">  
     <input type="submit" value="Submit">
 </form>
-{% endblock %}
+</body>
+</html>
