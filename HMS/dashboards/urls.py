@@ -5,5 +5,5 @@ from django.contrib.auth.urls import views
 from . import views
 
 urlpatterns = [
-    path("doc/", views.DoctorForms, name="doc"),
+    path("doc/", views.DoctorsPage, name="doc"),
 ]
