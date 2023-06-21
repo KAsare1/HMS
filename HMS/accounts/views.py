@@ -8,7 +8,7 @@ def login_request(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return redirect('/placement/')
+        return redirect('/dashboards/')
         ...
     else:
         print('hello')
@@ -16,5 +16,3 @@ def login_request(request):
         ...
     form = AuthenticationForm()
     return render(request, 'login.html', {'form':form})
-
-

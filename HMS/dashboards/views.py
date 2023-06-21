@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from dashboards.forms import NursesForms, DoctorForms, LabtechForms
 from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users
 # Create your views here.
 
 @login_required
+@allowed_users(allowed_roles=['Nurse'])
 def NursePage(request):
     form = NursesForms(request.POST)
     if form.is_valid():
@@ -11,6 +13,8 @@ def NursePage(request):
         form.save()
     return render(request, 'nurses.html', {'form': form})
 
+@login_required
+@allowed_users(allowed_roles=['Doctor'])
 def DoctorsPage(request):
     form = DoctorForms(request.POST)
     if form.is_valid():
@@ -18,6 +22,8 @@ def DoctorsPage(request):
         form.save()
     return render(request, 'doctor.html', {'form': form})
 
+@login_required
+@allowed_users(allowed_roles=['Lab technician'])
 def LabTechPage(request):
     form = LabtechForms(request.POST)
     if form.is_valid():
