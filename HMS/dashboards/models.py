@@ -10,7 +10,8 @@ class NursesPage(models.Model):
 class Doctorpage(models.Model):
     complaints = models.CharField(max_length=500)
     comments = models.CharField(max_length=500)
+    findings = models.CharField(max_length=300)
     drugs_assigned = models.CharField(max_length=500)
 
 class Labtechnician(models.Model):
-    results = models.fields
+    results = models.CharField(max_length=200)
