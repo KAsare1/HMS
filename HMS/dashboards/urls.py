@@ -5,5 +5,7 @@ from django.contrib.auth.urls import views
 from . import views
 
 urlpatterns = [
-    path("", views.DoctorsPage, name="doc"),
+    path("doc/", views.DoctorsPage, name="doc"),
+    path("nurse/", views.NursePage, name='nurse'),
+    path("labtech/", views.LabTechPage, name='labtech'),
 ]
