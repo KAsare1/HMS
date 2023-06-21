@@ -30,3 +30,8 @@ def LabTechPage(request):
         print('lab forms submitted')
         form.save()
     return render(request, 'labtech.html', {'form': form})
+
+@login_required
+def home_index(request):
+    context = {}
+    return render(request,'index.html', context)
