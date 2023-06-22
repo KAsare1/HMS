@@ -10,4 +10,5 @@ urlpatterns = [
     path("nurse/", views.NursePage, name='nurse'),
     path("labtech/", views.LabTechPage, name='labtech'),
     path('fde/', views.fde, name='fde'),
+    path("app/", views.appointmentPage, name='appointments.html'),
 ]

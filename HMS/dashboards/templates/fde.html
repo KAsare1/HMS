@@ -6,15 +6,12 @@
     <section class="mb-32 text-center lg:text-left">
       <div class="grid gap-x-6 lg:grid-cols-3">
         <div class="mb-12 lg:mb-0">
-          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light" onclick="supge()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 -5 18 40" stroke-width="1.5" stroke="currentColor" class="w-80 h-80">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
               </svg>
               
-            <a href="#!">
-              <div
-                class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
-            </a>
+
           </div>
           <h5 class="mb-4 text-lg font-bold">Book Appointments</h5>
           <div class="mb-4 flex items-center justify-center text-sm font-medium text-danger dark:text-danger-500 lg:justify-start">
@@ -26,7 +23,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 -5 18 40" stroke-width="1.5" stroke="currentColor" class="w-80 h-80">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            <a href="#!">
+            <a href="register.html">
               <div
                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
             </a>
@@ -43,7 +40,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               
-            <a href="#!">
+            <a href="check_in.html">
               <div
                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
             </a>
@@ -56,6 +53,14 @@
       </div>
     </section>
   </div>
+  <script>
+    function supge(a, b) { 
+      a = history.back();
+      b = location.href = "/dashboards/app/";
+      return a
+      return b
+     }
+  </script>
   <body>
   </body>
   {% endblock %}

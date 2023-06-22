@@ -1,5 +1,5 @@
 from django import forms
-from .models import NursesPage, Doctorpage, Labtechnician
+from .models import NursesPage, Doctorpage, Labtechnician, Appointment
 
 class NursesForms(forms.ModelForm):
     class Meta:
@@ -26,4 +26,13 @@ class LabtechForms(forms.ModelForm):
         model = Labtechnician
         fields = {
             'results',
+        }
+
+class AppointmentForms(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = {
+            'Name',
+            'Date_of_Appointment',
+            'Doctor_Assigned_to',
         }
