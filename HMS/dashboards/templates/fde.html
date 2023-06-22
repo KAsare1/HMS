@@ -1,5 +1,84 @@
+<html webcrx="">
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        body: ["Roboto", "sans-serif"],
+        mono: ["ui-monospace", "monospace"],
+      },
+    },
+    corePlugins: {
+      preflight: false,
+    },
+  };
+</script>
 <form action="/your-name/" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
+
+<!-- Container for demo purpose -->
+<div class="container my-24 mx-auto md:px-6">
+    <!-- Section: Design Block -->
+    <section class="mb-32 text-center lg:text-left">
+      <h2 class="mb-12 text-center text-3xl font-bold">
+        Manage Patients
+      </h2>
+  
+      <div class="grid gap-x-6 lg:grid-cols-3">
+        <div class="mb-12 lg:mb-0">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.jpg" class="w-full" />
+            <a href="#!">
+              <div
+                class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
+            </a>
+          </div>
+          <h5 class="mb-4 text-lg font-bold">Book Appointments</h5>
+          <div class="mb-4 flex items-center justify-center text-sm font-medium text-danger dark:text-danger-500 lg:justify-start">
+          </div>
+        </div>
+  
+        <div class="mb-12 lg:mb-0">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/045.jpg" class="w-full" />
+            <a href="#!">
+              <div
+                class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
+            </a>
+          </div>
+  
+          <h5 class="mb-4 text-lg font-bold">Register new patient</h5>
+          <div class="mb-4 flex items-center justify-center text-sm font-medium text-primary dark:text-primary-400 lg:justify-start">
+          </div>
+        </div>
+  
+        <div class="mb-0">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/047.jpg" class="w-full" />
+            <a href="#!">
+              <div
+                class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
+            </a>
+          </div>
+  
+          <h5 class="mb-4 text-lg font-bold">Book Patient</h5>
+          <div class="mb-4 flex items-center justify-center text-sm font-medium text-warning lg:justify-start">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

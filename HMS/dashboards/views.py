@@ -36,3 +36,6 @@ def home_index(request):
     context = {}
     return render(request,'index.html', context)
 
+def fde(request):
+    context = {}
+    return render(request,'fde.html', context)
