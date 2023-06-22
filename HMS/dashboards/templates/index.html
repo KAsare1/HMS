@@ -1,6 +1,17 @@
 {% load auth_extras %}
 {% block content %}
-{% if request.user|has_group:"Doctor" %}
+{% if request.user|has_group:"Nurse" %}
+    {% include 'nurses.html' %}
+{% elif request.user|has_group:"Doctor" %}
     {% include 'doctor.html' %}
+{% elif request.user|has_group:"Front Desk Executives" %}
+    {% include 'fde.html' %}
+{% elif request.user|has_group:"Lab Technician" %}
+    {% include 'labtech.html' %}
+{% elif request.user|has_group:"Pharmacist" %}
+    {% include 'pharmacist.html' %}
+{% elif request.user|has_group:"Cashier" %}
+    {% include 'cashier.html' %}
+
 {% endif %}
 {% endblock %}

@@ -1,5 +1,22 @@
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
+<html webcrx="">
+    <head>
+    </head>
+    <body>
+        <form action="/your-name/" method="post">
+            {% csrf_token %}
+    <label for="id_Weight">Weight:</label>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="Weight" maxlength="10" required="" id="id_Weight">
+    <label for="id_Blood_Pressure">Blood Pressure:</label>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="Blood_Pressure" maxlength="10" required="" id="id_Blood_Pressure">
+    <label for="id_Pulse_rate">Pulse rate:</label>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="Pulse_rate" maxlength="10" required="" id="id_Pulse_rate">
+    <label for="id_Temperature">Temperature:</label>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="Temperature" maxlength="10" required="" id="id_Temperature">
     <input type="submit" value="Submit">
 </form>
+</body>
+</html>
