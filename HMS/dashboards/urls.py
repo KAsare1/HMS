@@ -9,4 +9,5 @@ urlpatterns = [
     path("doc/", views.DoctorsPage, name="doc"),
     path("nurse/", views.NursePage, name='nurse'),
     path("labtech/", views.LabTechPage, name='labtech'),
+    path('fde/', views.fde, name='fde'),
 ]
