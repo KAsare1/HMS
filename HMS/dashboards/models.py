@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class FDEPage(models.Model):
     Name = models.CharField(max_length=60)
-    Age = models.IntegerField(max_length=10)
+    Age = models.IntegerField()
     Date_Of_Birth = models.CharField(max_length=20)
     Location = models.CharField(max_length=30)
-    Tel = models.IntegerField(max_length=15)
+    Tel = models.IntegerField()
     
 class NursesPage(models.Model):
     Blood_Pressure = models.CharField(max_length=10)
