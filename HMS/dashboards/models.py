@@ -4,9 +4,14 @@ from django.db import models
 class FDEPage(models.Model):
     Name = models.CharField(max_length=60)
     Age = models.IntegerField()
-    Date_Of_Birth = models.CharField(max_length=20)
+    Date_Of_Birth = models.DateField()
     Location = models.CharField(max_length=30)
     Tel = models.IntegerField()
+
+class Appointment(models.Model):
+    Name = models.CharField(max_length=60)
+    Date_of_Appointment = models.DateField()
+    Doctor_Assigned_to = models.CharField(max_length=30)
     
 class NursesPage(models.Model):
     Blood_Pressure = models.CharField(max_length=10)
