@@ -2,6 +2,7 @@ from django.shortcuts import render
 from dashboards.forms import NursesForms, DoctorForms, LabtechForms
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
+from django import template
 # Create your views here.
 
 @login_required
@@ -35,3 +36,10 @@ def LabTechPage(request):
 def home_index(request):
     context = {}
     return render(request,'index.html', context)
+
+
+
+register = template.Library() 
+@register.filter(name='has_group') 
+def has_group(user, group_name):
+    return user.groups.filter(name=group_name).exists() 

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>wowwww</h1>
-</body>
-</html>
+{% load auth_extras %}
+{% block content %}
+{% if request.user|has_group:"Doctor" %}
+    {% include 'doctor.html' %}
+{% endif %}
+{% endblock %}
