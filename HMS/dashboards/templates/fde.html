@@ -1,6 +1,32 @@
 {% extends "base_layout.html" %}
 {% block content %}
 <!-- Container for demo purpose -->
+<script>
+  function supge(a, b) { 
+    a = history.back();
+    b = location.href = "/dashboards/app/";
+    return a
+    return b
+   }
+</script>
+
+<script>
+function supba(a, b) { 
+  a = history.back();
+  b = location.href = "/dashboards/reg/";
+  return a
+  return b
+ }
+</script>
+
+<script>
+function supca(a, b) { 
+  a = history.back();
+  b = location.href = "/dashboards/checkin/";
+  return a
+  return b
+ }
+</script>
 <div class="container my-24 mx-auto md:px-6">
     <!-- Section: Design Block -->
     <section class="mb-32 text-center lg:text-left">
@@ -19,11 +45,10 @@
         </div>
   
         <div class="mb-12 lg:mb-0">
-          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light" onclick="supba()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 -5 18 40" stroke-width="1.5" stroke="currentColor" class="w-80 h-80">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-            <a href="register.html">
               <div
                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
             </a>
@@ -35,12 +60,12 @@
         </div>
   
         <div class="mb-0">
-          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light">
+          <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]" data-te-ripple-init data-te-ripple-color="light" onclick="supca()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 -5 18 40" stroke-width="1.5" stroke="currentColor" class="w-80 h-80">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               
-            <a href="check_in.html">
+
               <div
                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]"></div>
             </a>
@@ -53,14 +78,6 @@
       </div>
     </section>
   </div>
-  <script>
-    function supge(a, b) { 
-      a = history.back();
-      b = location.href = "/dashboards/app/";
-      return a
-      return b
-     }
-  </script>
   <body>
   </body>
   {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
+from .models import Appointment
 # Create your views here.
 
 @login_required
@@ -42,9 +43,10 @@ def fde(request):
 
 def appointmentPage(request):
     form = AppointmentForms(request.POST)
+    appointments = Appointment.objects.all
     if form.is_valid():
         form.save()
-    return render(request, 'appointments.html', {'form': form})
+    return render(request, 'appointments.html', {'form': form, 'appointments': appointments})
 
 def PatientReg(request):
     form = RegisterForms(request.POST)

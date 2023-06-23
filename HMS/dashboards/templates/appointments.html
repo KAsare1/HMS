@@ -1,8 +1,18 @@
 {% extends "base_layout.html" %}
 {% block content %}
-<form action="/your-name/" method="post">
+<form method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
+<tbody>
+    {% for appointment in appointments %}
+    <tr>
+        <td> {{appointment.Name}} </td>
+        <td> {{appointment.Date_of_Appointment}} </td>
+        <td> {{appointment.Time_of_Appointment}} </td>
+        <td> {{appointment.Doctor_Assigned_to}} </td>
+    </tr>
+</tbody>
+    {% endfor %}
 {% endblock %}
