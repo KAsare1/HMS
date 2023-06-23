@@ -28,6 +28,7 @@ class Appointment(models.Model):
     Doctor_Assigned_to = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'})
     
 class NursesPage(models.Model):
+    Name = models.ForeignKey(RegistrationPage, max_length=60, on_delete=models.CASCADE, null=True)
     Blood_Pressure = models.CharField(max_length=10)
     Weight = models.CharField(max_length=10)
     Temperature = models.CharField(max_length=10)
