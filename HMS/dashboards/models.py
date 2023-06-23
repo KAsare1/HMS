@@ -1,16 +1,29 @@
 from django.db import models
 
 # Create your models here.
-class FDEPage(models.Model):
+
+GENDER = (
+    ('MALE', 'MALE'),
+    ('FEMALE', 'FEMALE'),
+)
+PATIENT_TYPE = (
+    ('PRIVATE', 'PRIVATE'),
+    ('COOPERATE', 'COOPERATE')
+
+)
+
+class RegistrationPage(models.Model):
     Name = models.CharField(max_length=60)
-    Age = models.IntegerField()
+    Patient_type = models.CharField(max_length=10, choices=PATIENT_TYPE)
     Date_Of_Birth = models.DateField()
+    Gender = models.CharField(choices=GENDER, max_length=7) 
     Location = models.CharField(max_length=30)
     Tel = models.IntegerField()
 
 class Appointment(models.Model):
     Name = models.CharField(max_length=60)
     Date_of_Appointment = models.DateField()
+    Time_of_Appointment = models.TimeField()
     Doctor_Assigned_to = models.CharField(max_length=30)
     
 class NursesPage(models.Model):

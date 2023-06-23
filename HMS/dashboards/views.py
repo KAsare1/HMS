@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms
+from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
 # Create your views here.
@@ -46,6 +46,12 @@ def appointmentPage(request):
         form.save()
     return render(request, 'appointments.html', {'form': form})
 
+def PatientReg(request):
+    form = RegisterForms(request.POST)
+    if form.is_valid():
+        form.save()
+    return render(request, 'register.html', {'form': form})
+
 def check_inPage(request):
     context = {}
-    return render(request,'ch.html', context)
+    return render(request,'check_in.html', context)
