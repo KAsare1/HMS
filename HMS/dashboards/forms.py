@@ -1,8 +1,8 @@
 from django import forms
-from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage
+from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage, PatientData
 class NursesForms(forms.ModelForm):
     class Meta:
-        model = NursesPage
+        model = PatientData
         fields = {
             'Temperature',
             'Blood_Pressure',
@@ -12,7 +12,7 @@ class NursesForms(forms.ModelForm):
 
 class DoctorForms(forms.ModelForm):
     class Meta:
-        model = Doctorpage
+        model = PatientData
         fields = {
             'complaints',
             'findings',
@@ -22,7 +22,7 @@ class DoctorForms(forms.ModelForm):
 
 class LabtechForms(forms.ModelForm):
     class Meta:
-        model = Labtechnician
+        model = PatientData
         fields = {
             'results',
         }
@@ -39,7 +39,7 @@ class AppointmentForms(forms.ModelForm):
 
 class RegisterForms(forms.ModelForm):
     class Meta:
-        model = RegistrationPage
+        model = PatientData
         fields = {
             'Name',
             'Patient_type',
