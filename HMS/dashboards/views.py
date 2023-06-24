@@ -10,7 +10,7 @@ from .models import Appointment
 def NursePage(request):
     form = NursesForms(request.POST)
     if form.is_valid():
-        print('nurse forms submitted')
+        print('nurse forms submitted1')
         form.save()
     return render(request, 'nurses.html', {'form': form})
 
