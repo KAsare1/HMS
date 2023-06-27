@@ -2,7 +2,7 @@ from django.shortcuts import render
 from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
-from .models import Appointment
+from .models import Appointment, RegistrationPage
 # Create your views here.
 
 @login_required
@@ -55,5 +55,12 @@ def PatientReg(request):
     return render(request, 'register.html', {'form': form})
 
 def check_inPage(request):
-    context = {}
-    return render(request,'check_in.html', context)
+    patients = RegistrationPage.objects.all()
+    return render(request, 'check_in.html', {'patients': patients})
+
+
+def check_in_patient(request, patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    check_in = CheckIn(patient=patient)
+    check_in.save()
+    return redirect('check-in-success')

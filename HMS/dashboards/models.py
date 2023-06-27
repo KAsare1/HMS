@@ -22,7 +22,7 @@ class RegistrationPage(models.Model):
     Tel = models.IntegerField()
 
 class Appointment(models.Model):
-    Name = models.ForeignKey(RegistrationPage, max_length=60, on_delete=models.CASCADE)
+    Name = models.CharField( max_length=60)
     Date_of_Appointment = models.DateField()
     Time_of_Appointment = models.TimeField()
     Doctor_Assigned_to = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'})
@@ -43,6 +43,13 @@ class Doctorpage(models.Model):
 
 class Labtechnician(models.Model):
     results = models.CharField(max_length=200)
+
+
+
+class CheckIn(models.Model):
+    patient = models.ForeignKey(RegistrationPage, on_delete=models.CASCADE)
+    check_in_time = models.DateTimeField(auto_now_add=True)
+    check_out_time = models.DateTimeField(null=True, blank=True)
 
 
 class PatientData(models.Model):

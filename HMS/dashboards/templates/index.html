@@ -2,15 +2,21 @@
 {% block content %}
 {% if request.user|has_group:"Nurse" %}
     {% include 'nurses.html' %}
+    <meta http-equiv="REFRESH" content="0;url=nurse">
 {% elif request.user|has_group:"Doctor" %}
     {% include 'doctor.html' %}
+    <meta http-equiv="REFRESH" content="0;url=doc">
 {% elif request.user|has_group:"Front Desk Executives" %}
     {% include 'fde.html' %}
+    <meta http-equiv="REFRESH" content="0;url=fde">
 {% elif request.user|has_group:"Lab Technician" %}
     {% include 'labtech.html' %}
+    <meta http-equiv="REFRESH" content="0;url=labtech">
 {% elif request.user|has_group:"Pharmacist" %}
     {% include 'pharmacist.html' %}
+    <meta http-equiv="REFRESH" content="0;url=...">
 {% elif request.user|has_group:"Cashier" %}
     {% include 'cashier.html' %}
+    <meta http-equiv="REFRESH" content="0;url=...">
 {% endif %}
 {% endblock %}
