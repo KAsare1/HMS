@@ -1,5 +1,5 @@
 from django import forms
-from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage, PatientData
+from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage, CheckIn
 class NursesForms(forms.ModelForm):
     class Meta:
         model = NursesPage
@@ -49,3 +49,13 @@ class RegisterForms(forms.ModelForm):
             'Location',
             'Tel'
         }
+
+
+class AssignedDoc(forms.Form):
+
+    class Meta:
+        model = CheckIn
+        fields = {
+            'DoctorAssigned'
+        } 
+    

@@ -48,6 +48,7 @@ class Labtechnician(models.Model):
 
 class CheckIn(models.Model):
     patient = models.ForeignKey(RegistrationPage, on_delete=models.CASCADE)
+    DoctorAssigned = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'}, null=True, blank=True)
     check_in_time = models.DateTimeField(auto_now_add=True)
     check_out_time = models.DateTimeField(null=True, blank=True)
 

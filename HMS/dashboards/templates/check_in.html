@@ -1,5 +1,44 @@
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+<h2>Check In</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Patient Type</th>
+      <th>Doctor Assigned</th>
+      <th>Check-In</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for registration in RegistrationPage %}
+    <tr>
+      <td>{{ registration.Name }}</td>
+      <td>{{ registration.Patient_type }}</td>
+      <td>
+        <button type="button" class="assign-doctor-button">Assign Doctor</button>
+        <div class="assign-doctor-form hidden">
+          <form method="POST" action="{% url 'check-in-patient' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+          </form>
+        </div>
+      </td> 
+      <td>
+        <form method="POST" action="{% url 'check-in-patient' %}">
+          {% csrf_token %}
+          <button type="submit">Check In</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  const assignDoctorButtons = document.querySelectorAll('.assign-doctor-button');
+  assignDoctorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const form = button.nextElementSibling;
+      form.classList.toggle('hidden');
+    });
+  });
+</script>
