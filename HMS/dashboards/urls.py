@@ -13,6 +13,5 @@ urlpatterns = [
     path("app/", views.appointmentPage, name='appointments.html'),
     path("reg/", views.PatientReg, name='register.html'),
     path("checkin/", views.check_inPage, name='check_in.html'),
-    path('check-in-patient/', views.check_in_patient, name='check-in-patient'),
 
 ]

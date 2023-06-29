@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
-from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms, AssignedDoc
+from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms, DocCheckIn
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
-from .models import Appointment, RegistrationPage, CheckIn
+from .models import Appointment, RegistrationPage, CheckIn, Doctors
 # Create your views here.
 
 @login_required
@@ -55,23 +55,11 @@ def PatientReg(request):
     return render(request, 'register.html', {'form': form})
 
 def check_inPage(request):
-    patients = RegistrationPage.objects.all()
-    form = AssignedDoc()
-    return render(request, 'check_in.html', {'RegistrationPage': patients, 'form': form})
-
-
-def check_in_patient(request):
-    patient =RegistrationPage.objects.get()
-    if request.method == 'POST':
-        form = AssignedDoc(request.POST)
-        if form.is_valid():
-            doctor = form.cleaned_data['doctor']
-            check_in = CheckIn(patient=patient, doctor=doctor)
-            check_in.save()
-
-            return redirect('check_in.html')
-        else:
-            form = AssignedDoc(request.POST)
-        return render(request, 'assign_doctor.html', {'patient': patient, 'form': form})
+    form = DocCheckIn(request.POST)
+    if form.is_valid():
+        form.save()
+    else:
+        print('hello')
+    return render(request, 'check_in.html', {'form': form})
 
 

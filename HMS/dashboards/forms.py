@@ -51,11 +51,8 @@ class RegisterForms(forms.ModelForm):
         }
 
 
-class AssignedDoc(forms.Form):
-
+class DocCheckIn(forms.ModelForm):
     class Meta:
         model = CheckIn
-        fields = {
-            'DoctorAssigned'
-        } 
+        fields = '__all__'
     

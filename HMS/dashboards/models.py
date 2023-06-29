@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from HMS.dashboards.views import check_inPage
+
 # Create your models here.
 
 GENDER = (
@@ -27,13 +29,6 @@ class Appointment(models.Model):
     Time_of_Appointment = models.TimeField()
     Doctor_Assigned_to = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'})
     
-class NursesPage(models.Model):
-    Name = models.ForeignKey(RegistrationPage, max_length=60, on_delete=models.CASCADE, null=True)
-    Blood_Pressure = models.CharField(max_length=10)
-    Weight = models.CharField(max_length=10)
-    Temperature = models.CharField(max_length=10)
-    Pulse_rate = models.CharField(max_length=10)
-    Height = models.CharField(max_length=10, null=True)
 
 class Doctorpage(models.Model):
     complaints = models.CharField(max_length=500)
@@ -44,14 +39,22 @@ class Doctorpage(models.Model):
 class Labtechnician(models.Model):
     results = models.CharField(max_length=200)
 
-
+class Doctors(models.Model):
+    doctors = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'}, null=True)
 
 class CheckIn(models.Model):
-    patient = models.ForeignKey(RegistrationPage, on_delete=models.CASCADE)
-    DoctorAssigned = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'}, null=True, blank=True)
-    check_in_time = models.DateTimeField(auto_now_add=True)
-    check_out_time = models.DateTimeField(null=True, blank=True)
+    patient = models.ForeignKey(RegistrationPage, on_delete=models.CASCADE, null=False)
+    DoctorAssigned = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'}, null=True)
+    check_in_time = models.DateTimeField(auto_now_add=True, null=True)
+    check_out_time = models.DateTimeField(null=True)
 
+class NursesPage(models.Model):
+    patient = models.ForeignKey(CheckIn, on_delete=models.CASCADE, null=True)
+    Blood_Pressure = models.CharField(max_length=10)
+    Weight = models.CharField(max_length=10)
+    Temperature = models.CharField(max_length=10)
+    Pulse_rate = models.CharField(max_length=10)
+    Height = models.CharField(max_length=10, null=True)
 
 class PatientData(models.Model):
     Name = models.ForeignKey(RegistrationPage, max_length=60, on_delete=models.CASCADE)
