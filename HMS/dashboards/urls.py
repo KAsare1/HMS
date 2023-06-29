@@ -13,5 +13,6 @@ urlpatterns = [
     path("app/", views.appointmentPage, name='appointments.html'),
     path("reg/", views.PatientReg, name='register.html'),
     path("checkin/", views.check_inPage, name='check_in.html'),
+    path("pharm/", views.Pharmacist, name='pharm')
 
 ]

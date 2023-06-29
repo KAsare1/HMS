@@ -14,7 +14,7 @@
     <meta http-equiv="REFRESH" content="0;url=labtech">
 {% elif request.user|has_group:"Pharmacist" %}
     {% include 'pharmacist.html' %}
-    <meta http-equiv="REFRESH" content="0;url=...">
+    <meta http-equiv="REFRESH" content="0;url=pharm">
 {% elif request.user|has_group:"Cashier" %}
     {% include 'cashier.html' %}
     <meta http-equiv="REFRESH" content="0;url=...">

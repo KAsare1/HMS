@@ -59,9 +59,9 @@ class Labtechnician(models.Model):
 
 
 class Pharmacist(models.Model):
-    Name = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
-    drugs_assigned = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
-    Number_of_strips = models.IntegerField()
+    Name = models.ForeignKey(Doctorpage, related_name='patient', on_delete=models.CASCADE, null=True)
+    drugs_assigned2 = models.ForeignKey(Doctorpage, related_name='drugs_assigned2',on_delete=models.CASCADE, null=True)
+    Number_of_strips2 = models.IntegerField()
 
 
 class PatientData(models.Model):

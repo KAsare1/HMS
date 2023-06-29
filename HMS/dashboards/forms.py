@@ -1,5 +1,5 @@
 from django import forms
-from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage, CheckIn
+from .models import NursesPage, Doctorpage, Labtechnician, Appointment, RegistrationPage, CheckIn, Pharmacist
 class NursesForms(forms.ModelForm):
     class Meta:
         model = NursesPage
@@ -56,3 +56,7 @@ class DocCheckIn(forms.ModelForm):
         model = CheckIn
         fields = '__all__'
     
+class PharmacistForms(forms.ModelForm):
+    class Meta:
+        model = Pharmacist
+        fields = '__all__'

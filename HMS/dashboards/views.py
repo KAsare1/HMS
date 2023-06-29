@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
-from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms, DocCheckIn
+from dashboards.forms import NursesForms, DoctorForms, LabtechForms, AppointmentForms, RegisterForms, DocCheckIn, PharmacistForms
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
-from .models import Appointment, RegistrationPage, CheckIn, Doctors
+from .models import Appointment
 # Create your views here.
 
 @login_required
@@ -62,4 +62,9 @@ def check_inPage(request):
         print('hello')
     return render(request, 'check_in.html', {'form': form})
 
-
+@allowed_users(allowed_roles=['Pharmacist'])
+def Pharmacist(request):
+    form = PharmacistForms(request.POST)
+    if form.is_valid():
+        form.save()
+    return render(request, 'pharmacist.html', {'form': form})
