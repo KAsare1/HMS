@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from HMS.dashboards.views import check_inPage
 
 # Create your models here.
 
@@ -30,15 +29,6 @@ class Appointment(models.Model):
     Doctor_Assigned_to = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'})
     
 
-class Doctorpage(models.Model):
-    complaints = models.CharField(max_length=500)
-    comments = models.CharField(max_length=500)
-    findings = models.CharField(max_length=300)
-    drugs_assigned = models.CharField(max_length=500)
-
-class Labtechnician(models.Model):
-    results = models.CharField(max_length=200)
-
 class Doctors(models.Model):
     doctors = models.ForeignKey(User, max_length=30, on_delete=models.CASCADE, limit_choices_to={'groups': '8'}, null=True)
 
@@ -55,6 +45,18 @@ class NursesPage(models.Model):
     Temperature = models.CharField(max_length=10)
     Pulse_rate = models.CharField(max_length=10)
     Height = models.CharField(max_length=10, null=True)
+
+class Doctorpage(models.Model):
+    Name = models.ForeignKey(NursesPage, on_delete=models.CASCADE, null=True)
+    complaints = models.CharField(max_length=500)
+    comments = models.CharField(max_length=500)
+    findings = models.CharField(max_length=300)
+    drugs_assigned = models.CharField(max_length=500)
+
+class Labtechnician(models.Model):
+    Name = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
+    results = models.CharField(max_length=200)
+
 
 class PatientData(models.Model):
     Name = models.ForeignKey(RegistrationPage, max_length=60, on_delete=models.CASCADE)

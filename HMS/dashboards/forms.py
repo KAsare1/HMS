@@ -4,7 +4,7 @@ class NursesForms(forms.ModelForm):
     class Meta:
         model = NursesPage
         fields = {
-            'Name',
+            'patient',
             'Temperature',
             'Blood_Pressure',
             'Weight',
