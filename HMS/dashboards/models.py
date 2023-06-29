@@ -11,8 +11,8 @@ GENDER = (
 PATIENT_TYPE = (
     ('PRIVATE', 'PRIVATE'),
     ('COOPERATE', 'COOPERATE')
-
 )
+
 
 class RegistrationPage(models.Model):
     Name = models.CharField(max_length=60)
@@ -56,6 +56,12 @@ class Doctorpage(models.Model):
 class Labtechnician(models.Model):
     Name = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
     results = models.CharField(max_length=200)
+
+
+class Pharmacist(models.Model):
+    Name = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
+    drugs_assigned = models.ForeignKey(Doctorpage, on_delete=models.CASCADE, null=True)
+    Number_of_strips = models.IntegerField()
 
 
 class PatientData(models.Model):
