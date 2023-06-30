@@ -33,6 +33,14 @@ def LabTechPage(request):
     return render(request, 'labtech.html', {'form': form})
 
 @login_required
+@allowed_users(allowed_roles=['Pharmacist'])
+def Pharmacist(request):
+    form = PharmacistForms(request.POST)
+    if form.is_valid():
+        form.save()
+    return render(request, 'pharmacist.html', {'form': form})
+
+@login_required
 def home_index(request):
     context = {}
     return render(request,'index.html', context)
@@ -62,9 +70,3 @@ def check_inPage(request):
         print('hello')
     return render(request, 'check_in.html', {'form': form})
 
-@allowed_users(allowed_roles=['Pharmacist'])
-def Pharmacist(request):
-    form = PharmacistForms(request.POST)
-    if form.is_valid():
-        form.save()
-    return render(request, 'pharmacist.html', {'form': form})
