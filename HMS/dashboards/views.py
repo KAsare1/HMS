@@ -19,7 +19,7 @@ def NursePage(request):
 def DoctorsPage(request):
     form = DoctorForms(request.POST)
     if form.is_valid():
-        print("doctor form is valid")
+        print("doctor form is valid1")
         form.save()
     return render(request, 'doctor.html', {'form': form})
 
